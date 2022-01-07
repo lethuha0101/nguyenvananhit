@@ -17,4 +17,8 @@ var listMapLayout = [
         done: false
     }
 ];
-const THEME_LAYOUT_APP = new ThemeLayout(listMapLayout, CONTENT_ELEMENT);
+
+var listJavascriptLoad = [
+    "./layout/app.js"
+];
+const THEME_LAYOUT_APP = new ThemeLayout(listMapLayout, listJavascriptLoad, CONTENT_ELEMENT);

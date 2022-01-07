@@ -2,9 +2,10 @@
 class ThemeLayout {
     listMapLayout = {};
     mainElement = null;
-    constructor(listMapLayout, mainElement)
+    constructor(listMapLayout, listJavascriptLoad, mainElement)
     {
         this.listMapLayout = listMapLayout;
+        this.listJavascriptLoad = listJavascriptLoad;
         this.mainElement = mainElement;
         this.initTheme();
     }
@@ -36,7 +37,14 @@ class ThemeLayout {
             {
                 this.mainElement.append(frag);
             }
-        })
+        });
+        setTimeout(() => {
+            this.listJavascriptLoad.forEach(itemMap => {
+                var scriptElement = document.createElement("script");
+                scriptElement.src = itemMap;
+                document.body.appendChild(scriptElement);
+            });
+        }, 1000);
     }
 
     checkIsLoadingAll()
